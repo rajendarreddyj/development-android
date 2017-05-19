@@ -1,3 +1,3 @@
-android-projects
+development-android
 =================
-This Directory will have example projects related to Android.
+This Repository will have example projects related to Android.
