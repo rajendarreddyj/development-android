@@ -3,11 +3,13 @@
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     ext{
         // sdk and tools
@@ -19,14 +21,14 @@ buildscript {
 
         // android dependencies versions
         // https://developer.android.com/topic/libraries/support-library/revisions.html
-        supportLibraryVersion = '25.3.1'
+        supportLibraryVersion = '27.0.1'
         // https://developers.google.com/android/guides/releases
         // https://firebase.google.com/docs/android/setup
-        playServicesVersion = '10.2.4'
+        playServicesVersion = '11.4.2'
         // https://developer.android.com/studio/releases/gradle-plugin.html
         gradleAndroidPluginVersion='3.0.0'
         // https://developers.google.com/android/guides/google-services-plugin
-        googleServicesPluginVersion='3.0.0'
+        googleServicesPluginVersion='3.1.2'
         constraintLayoutVersion="1.0.2"
 
         //Other Jar dependencies
