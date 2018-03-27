@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "com.rajendarreddyj.quiz"
@@ -20,17 +19,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
-    compile "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
-    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    testCompile "junit:junit:$rootProject.ext.junitVersion"
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
+    implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
 }
