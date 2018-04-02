@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,34 +31,31 @@ public class QuizActivity extends AppCompatActivity {
         QuizDBHelper db = new QuizDBHelper(this);
         quesList = db.getAllQuestions();
         currentQ = quesList.get(qid);
-        txtQuestion = (TextView) findViewById(R.id.textView1);
-        rda = (RadioButton) findViewById(R.id.radio0);
-        rdb = (RadioButton) findViewById(R.id.radio1);
-        rdc = (RadioButton) findViewById(R.id.radio2);
-        rdd = (RadioButton) findViewById(R.id.radio3);
-        Button butNext = (Button) findViewById(R.id.button1);
+        txtQuestion = findViewById(R.id.textView1);
+        rda = findViewById(R.id.radio0);
+        rdb = findViewById(R.id.radio1);
+        rdc = findViewById(R.id.radio2);
+        rdd = findViewById(R.id.radio3);
+        Button butNext = findViewById(R.id.button1);
         setQuestionView();
-        butNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RadioGroup grp = (RadioGroup) findViewById(R.id.radioGroup1);
-                RadioButton answer = (RadioButton) findViewById(grp.getCheckedRadioButtonId());
-                Log.d("yourans", currentQ.getAnswer() + " " + answer.getText());
-                if (currentQ.getAnswer().equals(answer.getText())) {
-                    score++;
-                    Log.d("score", "Your score" + score);
-                }
-                if (qid < 5) {
-                    currentQ = quesList.get(qid);
-                    setQuestionView();
-                } else {
-                    Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("score", score); //Your score
-                    intent.putExtras(b); //Put your score to your next Intent
-                    startActivity(intent);
-                    finish();
-                }
+        butNext.setOnClickListener(v -> {
+            RadioGroup grp = findViewById(R.id.radioGroup1);
+            RadioButton answer = findViewById(grp.getCheckedRadioButtonId());
+            Log.d("yourans", currentQ.getAnswer() + " " + answer.getText());
+            if (currentQ.getAnswer().contentEquals(answer.getText())) {
+                score++;
+                Log.d("score", "Your score" + score);
+            }
+            if (qid < 5) {
+                currentQ = quesList.get(qid);
+                setQuestionView();
+            } else {
+                Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("score", score); //Your score
+                intent.putExtras(b); //Put your score to your next Intent
+                startActivity(intent);
+                finish();
             }
         });
     }

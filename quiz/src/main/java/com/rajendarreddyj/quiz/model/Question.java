@@ -95,8 +95,7 @@ public class Question {
 
         Question question1 = (Question) o;
 
-        if (id != question1.id) return false;
-        return question != null ? question.equals(question1.question) : question1.question == null;
+        return id == question1.id && (question != null ? question.equals(question1.question) : question1.question == null);
 
     }
 

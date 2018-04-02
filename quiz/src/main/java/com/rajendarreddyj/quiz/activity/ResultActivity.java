@@ -19,12 +19,12 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         //get rating bar object
-        RatingBar bar=(RatingBar)findViewById(R.id.ratingBar1);
+        RatingBar bar= findViewById(R.id.ratingBar1);
         bar.setNumStars(5);
         bar.setStepSize(0.5f);
         bar.setIsIndicator(true);
         //get text view
-        TextView t=(TextView)findViewById(R.id.textResult);
+        TextView t= findViewById(R.id.textResult);
         //get score
         Bundle b = getIntent().getExtras();
         int score= b.getInt("score");
