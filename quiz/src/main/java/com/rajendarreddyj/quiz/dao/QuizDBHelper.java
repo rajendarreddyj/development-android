@@ -107,6 +107,7 @@ public class QuizDBHelper extends SQLiteOpenHelper {
                 quesList.add(quest);
             } while (cursor.moveToNext());
         }
+        cursor.close();
         // return quest list
         return quesList;
     }
@@ -118,6 +119,7 @@ public class QuizDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
+        cursor.close();
         return row;
     }
 }

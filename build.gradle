@@ -13,9 +13,9 @@ buildscript {
     }
     ext{
         // sdk and tools
-        minSdkVersion = 16
-        targetSdkVersion = 26
-        compileSdkVersion = 26
+        minSdkVersion = 19
+        targetSdkVersion = 27
+        compileSdkVersion = 27
         // https://developer.android.com/studio/releases/build-tools.html
         buildToolsVersion = '27.0.3'
 
@@ -33,13 +33,12 @@ buildscript {
 
         //Other Jar dependencies
         junitVersion = '4.12'
-        mockitoVersion = '1.10.19'
         powerMockito = '1.6.2'
         hamcrestVersion = '1.3'
-        runnerVersion = '0.4.1'
-        rulesVersion = '0.4.1'
-        espressoVersion = '2.2.2'
-        guavaVersion = '18.0'
+        runnerVersion = '1.0.1'
+        rulesVersion = '1.0.1'
+        espressoVersion = '3.0.1'
+        guavaVersion = '24.1-android'
 
     }
 
@@ -61,6 +60,11 @@ buildscript {
         //implementation "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
         //implementation "com.google.android.gms:play-services-gcm:$rootProject.ext.playServicesVersion"
         //implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
+
+        //testImplementation "junit:junit:$rootProject.ext.junitVersion"
+        //androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+        //androidTestImplementation "com.android.support.test:rules:$rootProject.ext.rulesVersion"
+        //androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
     }
 
 }

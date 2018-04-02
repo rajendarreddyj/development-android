@@ -1,4 +1,4 @@
-package com.rajendarreddyj.quiz;
+package com.rajendarreddyj.application1;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -7,20 +7,20 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
- * Instrumentation test, which will execute on an Android device.
+ * Instrumented test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
     @Test
-    public void useAppContext()  {
+    public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.rajendarreddyj.quiz", appContext.getPackageName());
+        assertEquals("com.rajendarreddyj.application1", appContext.getPackageName());
     }
 }

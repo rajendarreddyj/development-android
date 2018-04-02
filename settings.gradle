@@ -1,1 +1,1 @@
-include ':helloworld', ':quiz'
+include ':helloworld', ':quiz', ':application1'
