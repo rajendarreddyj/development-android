@@ -29,7 +29,7 @@ buildscript {
         // https://firebase.google.com/docs/android/setup
         playServicesVersion = '11.4.2'
         // https://developer.android.com/studio/releases/gradle-plugin.html
-        gradleAndroidPluginVersion='3.1.0'
+        gradleAndroidPluginVersion='3.1.1'
         // https://developers.google.com/android/guides/google-services-plugin
         googleServicesPluginVersion='3.2.1'
         constraintLayoutVersion="1.0.2"
@@ -51,7 +51,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
-        //Heare are examples that can go in child ones
+        // Here are examples that can go in child ones
         // support libraries
         //implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
         //implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
