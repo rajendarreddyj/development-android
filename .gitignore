@@ -5,8 +5,29 @@
 # Files for the ART/Dalvik VM
 *.dex
 
-# Java class files
+# Compiled class file
 *.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 
 # Generated files
 bin/
@@ -16,6 +37,12 @@ out/
 # Gradle files
 .gradle/
 build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven
+log/
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -32,20 +59,62 @@ proguard/
 # Android Studio captures folder
 captures/
 
-# Intellij
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
-.idea/
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+nbactions.xml
+nb-configuration.xml
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+.gradle/
+bin/
+
+# Mac
+.DS_Store
 
 # Keystore files
 *.jks
+
+# git
+.git/
+
+# svn
+.svn/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
+client_secrets.json
 
 # Freeline
 freeline.py
 freeline/
 freeline_project_description.json
+
+# versions plugin
+pom.xml.versionsBackup
