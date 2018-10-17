@@ -27,7 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.2'
 }
 
 dependencies {
@@ -35,8 +35,8 @@ dependencies {
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
-    implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseCoreVersion"
+    implementation "com.google.firebase:firebase-auth:$rootProject.ext.firebaseAuthVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
