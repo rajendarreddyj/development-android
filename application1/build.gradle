@@ -1,8 +1,24 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'
 android {
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+    // Use the following syntax to access properties you defined at the project level:
+    // rootProject.ext.property_name
+    /**
+     * compileSdkVersion specifies the Android API level Gradle should use to
+     * compile your app. This means your app can use the API features included in
+     * this API level and lower.
+     */
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    /**
+     * buildToolsVersion specifies the version of the SDK build tools, command-line
+     * utilities, and compiler that Gradle should use to build your app. You need to
+     * download the build tools using the SDK Manager.
+     *
+     * This property is optional because the plugin uses a recommended version of
+     * the build tools by default.
+     */
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     // Configure only for each module that uses Java 8
     // language features (either in its source code or
@@ -11,34 +27,110 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    /**
+     * The defaultConfig block encapsulates default settings and entries for all
+     * build variants, and can override some attributes in main/AndroidManifest.xml
+     * dynamically from the build system. You can configure product flavors to override
+     * these values for different versions of your app.
+     */
     defaultConfig {
+        /**
+         * applicationId uniquely identifies the package for publishing.
+         * However, your source code should still reference the package name
+         * defined by the package attribute in the main/AndroidManifest.xml file.
+         */
         applicationId "com.rajendarreddyj.application1"
-        minSdkVersion rootProject.minSdkVersion
+        // Defines the minimum API level required to run the app.
+        minSdkVersion rootProject.ext.minSdkVersion
+        // Specifies the API level used to test the app.
         targetSdkVersion rootProject.targetSdkVersion
+        // Defines the version number of your app.
         versionCode 1
+        // Defines a user-friendly version name for your app.
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    /**
+     * The buildTypes block is where you can configure multiple build types.
+     * By default, the build system defines two build types: debug and release. The
+     * debug build type is not explicitly shown in the default build configuration,
+     * but it includes debugging tools and is signed with the debug key. The release
+     * build type applies Proguard settings and is not signed by default.
+     */
     buildTypes {
+        /**
+         * By default, Android Studio configures the release build type to enable code
+         * shrinking, using minifyEnabled, and specifies the Proguard settings file.
+         */
         release {
+            // Enables code shrinking for the release build type.
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-}
+    /**
+     * The productFlavors block is where you can configure multiple product flavors.
+     * This allows you to create different versions of your app that can
+     * override the defaultConfig block with their own settings. Product flavors
+     * are optional, and the build system does not create them by default.
+     *
+     * This example creates a free and paid product flavor. Each product flavor
+     * then specifies its own application ID, so that they can exist on the Google
+     * Play Store, or an Android device, simultaneously.
+     *
+     * If you declare product flavors, you must also declare flavor dimensions
+     * and assign each flavor to a flavor dimension.
+     */
 
+    flavorDimensions "tier"
+    productFlavors {
+        free {
+            dimension "tier"
+            applicationId 'com.rajendarreddyj.application1.free'
+        }
+
+        paid {
+            dimension "tier"
+            applicationId 'com.rajendarreddyj.application1.paid'
+        }
+    }
+
+    /**
+     * The splits block is where you can configure different APK builds that
+     * each contain only code and resources for a supported screen density or
+     * ABI. You'll also need to configure your build so that each APK has a
+     * different versionCode.
+     */
+
+    splits {
+        // Settings to build multiple APKs based on screen density.
+        density {
+
+            // Enable or disable building multiple APKs.
+            enable false
+
+            // Exclude these densities when building multiple APKs.
+            exclude "ldpi", "tvdpi", "xxxhdpi", "400dpi", "560dpi"
+        }
+    }
+
+}
+/**
+ * The dependencies block in the module-level build configuration file
+ * specifies dependencies required to build only the module itself.
+ * To learn more, go to https://developer.android.com/studio/build/dependencies.
+ */
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
-    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation("androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion")
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlin_version"
 }

@@ -1,4 +1,111 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+/**
+ * The buildscript block is where you configure the repositories and
+ * dependencies for Gradle itself—meaning, you should not include dependencies
+ * for your modules here. For example, this block includes the Android plugin for
+ * Gradle as a dependency because it provides the additional instructions Gradle
+ * needs to build Android app modules.
+ */
+buildscript {
+    /**
+     * The repositories block configures the repositories Gradle uses to
+     * search or download the dependencies. Gradle pre-configures support for remote
+     * repositories such as JCenter, Maven Central, and Ivy. You can also use local
+     * repositories or define your own remote repositories. The code below defines
+     * JCenter as the repository Gradle should use to look for its dependencies.
+     *
+     * New projects created using Android Studio 3.0 and higher also include
+     * Google's Maven repository.
+     */
+    repositories {
+        jcenter()
+        google()
+    }
+// This block encapsulates custom properties and makes them available to all
+// modules in the project.
+    ext{
+        // sdk and tools
+        minSdkVersion = 19
+        targetSdkVersion = 28
+        compileSdkVersion = 28
+        // https://developer.android.com/studio/releases/build-tools.html
+        buildToolsVersion = "28.0.3"
+
+        // android dependencies versions
+        // https://developer.android.com/topic/libraries/support-library/revisions.html
+        supportLibraryVersion = "28.0.0"
+
+        // https://developers.google.com/android/guides/releases
+        // https://firebase.google.com/docs/android/setup
+        firebaseCoreVersion = "16.0.4"
+        firebaseAuthVersion = "16.0.4"
+        playServicesLocationVersion = "16.0.0"
+        playServicesGcmVersion = "16.0.0"
+
+        // https://developer.android.com/jetpack/androidx/migrate
+        materialVersion = "1.0.0"
+        appcompatVersion = "1.0.0"
+        percentLayoutVersion = "1.0.0"
+        constraintLayoutVersion = "2.0.0-alpha2"
+        cardViewVersion = "1.0.0"
+        gridLayoutVersion = "1.0.0"
+
+        kotlin_version = "1.2.71"
+
+        //Other Jar dependencies
+        junitVersion = "4.12"
+        hamcrestVersion = "1.3"
+        runnerVersion = "1.1.0-beta02"
+        rulesVersion = "1.1.0-beta02"
+        espressoVersion = "3.1.0-beta02"
+        guavaVersion = "26.0-android"
+    }
+    /**
+     * The dependencies block configures the dependencies Gradle needs to use
+     * to build your project. The following line adds Android plugin for Gradle
+     * version 3.2.0 as a classpath dependency.
+     */
+    dependencies {
+        // https://developer.android.com/studio/releases/gradle-plugin.html
+        classpath "com.android.tools.build:gradle:3.2.1"
+        // https://developers.google.com/android/guides/google-services-plugin
+        classpath "com.google.gms:google-services:4.1.0"
+        // https://developers.google.com/android/guides/versioning
+        classpath "com.google.android.gms:strict-version-matcher-plugin:1.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        // Here are examples that can go in child ones
+        // support libraries
+        // https://developer.android.com/jetpack/androidx/migrate
+        //implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
+        //implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+        //implementation "androidx.percentlayout:percentlayout:$rootProject.ext.percentLayoutVersion"
+        //implementation "androidx.cardview:cardview:$rootProject.ext.cardViewVersion"
+        //implementation "androidx.gridlayout:gridlayout:$rootProject.ext.gridLayoutVersion"
+
+        //play services
+        //https://developers.google.com/android/guides/releases
+        //implementation "com.google.android.gms:play-services-location:$rootProject.ext.playServicesLocationVersion"
+        //implementation "com.google.android.gms:play-services-gcm:$rootProject.ext.playServicesGcmVersion"
+        //implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseCoreVersion"
+        //implementation "com.google.firebase:firebase-auth:$rootProject.ext.firebaseAuthVersion"
+
+        //androidTestImplementation "androidx.test:rules:$rootProject.ext.rulesVersion"
+        //androidTestImplementation "androidx.test:runner:$rootProject.ext.runnerVersion"
+        //androidTestImplementation("androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion")
+        //testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    }
+}
+
+/**
+ * The allprojects block is where you configure the repositories and
+ * dependencies used by all modules in your project, such as third-party plugins
+ * or libraries. However, you should configure module-specific dependencies in
+ * each module-level build.gradle file. For new projects, Android Studio
+ * includes JCenter and Google's Maven repository by default, but it does not
+ * configure any dependencies (unless you select a template that requires some).
+ */
 
 allprojects {
     repositories {
@@ -9,70 +116,4 @@ allprojects {
         google()
     }
 }
-buildscript {
-    repositories {
-        jcenter()
-        google()
-    }
-    ext{
-        // sdk and tools
-        minSdkVersion = 19
-        targetSdkVersion = 28
-        compileSdkVersion = 28
-        // https://developer.android.com/studio/releases/build-tools.html
-        buildToolsVersion = '28.0.2'
 
-        // android dependencies versions
-        // https://developer.android.com/topic/libraries/support-library/revisions.html
-        supportLibraryVersion = '28.0.0'
-        // https://developers.google.com/android/guides/releases
-        // https://firebase.google.com/docs/android/setup
-        playServicesVersion = '12.0.1'
-
-        firebaseCoreVersion = '16.0.4'
-        firebaseAuthVersion = '16.0.4'
-        // https://developer.android.com/studio/releases/gradle-plugin.html
-        gradleAndroidPluginVersion ='3.2.0'
-        // https://developers.google.com/android/guides/google-services-plugin
-        googleServicesPluginVersion = '4.1.0'
-        constraintLayoutVersion = '1.1.3'
-
-        strictVersionMatcherPluginVersion = '1.0.2'
-
-        //Other Jar dependencies
-        junitVersion = '4.12'
-        hamcrestVersion = '1.3'
-        runnerVersion = '1.0.2'
-        rulesVersion = '1.0.2'
-        espressoVersion = '3.0.2'
-        guavaVersion = '26.0-android'
-
-    }
-
-    dependencies {
-        classpath "com.android.tools.build:gradle:$gradleAndroidPluginVersion"
-        classpath "com.google.gms:google-services:$googleServicesPluginVersion"
-        classpath "com.google.android.gms:strict-version-matcher-plugin:$strictVersionMatcherPluginVersion"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-
-        // Here are examples that can go in child ones
-        // support libraries
-        //implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-        //implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-        //implementation "com.android.support:percent:$rootProject.ext.supportLibraryVersion"
-        //implementation "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
-        //implementation "com.android.support:gridlayout-v7:$rootProject.ext.supportLibraryVersion"
-
-        //play services
-        //implementation "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
-        //implementation "com.google.android.gms:play-services-gcm:$rootProject.ext.playServicesVersion"
-        //implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
-
-        //testImplementation "junit:junit:$rootProject.ext.junitVersion"
-        //androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-        //androidTestImplementation "com.android.support.test:rules:$rootProject.ext.rulesVersion"
-        //androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-    }
-
-}
