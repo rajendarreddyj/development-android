@@ -6,7 +6,9 @@
  * needs to build Android app modules.
  */
 buildscript {
-    ext.android_plugin_version = '3.2.1'
+    ext.android_plugin_version = "3.2.1"
+    ext.google_services_version = "4.1.0"
+    ext.strict_version_matcher_plugin_version = "1.0.2"
     ext.kotlin_version = "1.2.71"
     /**
      * The repositories block configures the repositories Gradle uses to
@@ -32,9 +34,9 @@ buildscript {
         // https://developer.android.com/studio/releases/gradle-plugin.html
         classpath "com.android.tools.build:gradle:$android_plugin_version"
         // https://developers.google.com/android/guides/google-services-plugin
-        classpath "com.google.gms:google-services:4.1.0"
+        classpath "com.google.gms:google-services:$google_services_version"
         // https://developers.google.com/android/guides/versioning
-        classpath "com.google.android.gms:strict-version-matcher-plugin:1.0.2"
+        classpath "com.google.android.gms:strict-version-matcher-plugin:$strict_version_matcher_plugin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
