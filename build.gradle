@@ -6,10 +6,10 @@
  * needs to build Android app modules.
  */
 buildscript {
-    ext.android_plugin_version = '4.1.1'
+    ext.android_plugin_version = '4.1.2'
     ext.google_services_version = "4.1.0"
     ext.strict_version_matcher_plugin_version = "1.0.2"
-    ext.kotlin_version = '1.3.61'
+    ext.kotlin_version = '1.4.30'
     /**
      * The repositories block configures the repositories Gradle uses to
      * search or download the dependencies. Gradle pre-configures support for remote
@@ -99,24 +99,24 @@ ext{
 
     // https://developers.google.com/android/guides/releases
     // https://firebase.google.com/docs/android/setup
-    firebaseCoreVersion = "17.2.2"
-    firebaseAuthVersion = "19.2.0"
+    firebaseCoreVersion = '18.0.2'
+    firebaseAuthVersion = '20.0.2'
     playServicesLocationVersion = "17.0.0"
     playServicesGcmVersion = "17.0.0"
 
     // https://developer.android.com/jetpack/androidx/migrate
-    materialVersion = "1.0.0"
-    appcompatVersion = "1.1.0"
+    materialVersion = '1.3.0'
+    appcompatVersion = '1.2.0'
     percentLayoutVersion = "1.0.0"
-    constraintLayoutVersion = '2.0.0-beta4'
+    constraintLayoutVersion = '2.1.0-alpha2'
     cardViewVersion = "1.0.0"
     gridLayoutVersion = "1.0.0"
 
     //Other Jar dependencies
-    junitVersion = '4.13'
+    junitVersion = '4.13.2'
     hamcrestVersion = "1.3"
-    runnerVersion = '1.3.0-alpha03'
+    runnerVersion = '1.4.0-alpha04'
     rulesVersion = "1.1.0-beta02"
-    espressoVersion = '3.3.0-alpha03'
+    espressoVersion = '3.4.0-alpha04'
     guavaVersion = "26.0-android"
 }
