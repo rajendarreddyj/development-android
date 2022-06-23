@@ -6,8 +6,8 @@
  * needs to build Android app modules.
  */
 buildscript {
-    ext.android_plugin_version = '7.0.4'
-    ext.google_services_version = "4.1.0"
+    ext.android_plugin_version = '7.2.1'
+    ext.google_services_version = '4.3.10'
     ext.strict_version_matcher_plugin_version = "1.0.2"
     ext.kotlin_version = '1.4.30'
     /**

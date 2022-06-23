@@ -18,7 +18,6 @@ android {
      * This property is optional because the plugin uses a recommended version of
      * the build tools by default.
      */
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     // Configure only for each module that uses Java 8
     // language features (either in its source code or

@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     // Configure only for each module that uses Java 8
     // language features (either in its source code or
